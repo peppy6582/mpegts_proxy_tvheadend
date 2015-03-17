@@ -1,5 +1,5 @@
 /*
- * Require libraries
+ * Require libraries and stuff
  */
 var yargs = require('yargs');
 var winston = require('winston');
