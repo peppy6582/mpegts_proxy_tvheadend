@@ -1,0 +1,21 @@
+<!-- sources.html -->
+<div ng-controller="sourceAppController">
+    <md-content>
+        <md-card ng-repeat="source in sources" class="md-whiteframe-z2">
+            <md-card-content>
+                <p>Name: {{ source.name }}</p>
+                <p>Provider: {{ source.provider }}</p>
+                <p>Url: {{ source.url }}</p>
+                <p>Source Url: {{ source.source }}</p>
+            </md-card-content>
+        </md-card>
+        <md-card>
+            <div class="span12">
+                <a href="#/add">Add Source</a>
+            </div>
+        </md-card>
+    </md-content>
+</div>
+
+
+<div ui-view></div>

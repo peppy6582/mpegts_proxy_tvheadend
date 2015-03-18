@@ -4,24 +4,31 @@
 var yargs = require('yargs');
 var winston = require('winston');
 var http = require("http");
+var config = require('./config/config');
 var spawn = require('child_process').spawn;
 var avconv = require('avconv');
 var sources = require('./libs/sources');
 var options = require('./libs/options');
+var frontendServer = require('./libs/frontendServer');
+var path = require('path');
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+var fs = require('fs');
+var jf = require('jsonfile');
+
 
 /*
  * Read command line options
  */
 var argv = yargs
-		.usage('Usage: $0 -p <port> -s <sources> [-a <avconv>] [-q | -v]')
-		.alias('p', 'port')
+		.usage('Usage: -s <sources> [-a <avconv>] [-q | -v]')
 		.alias('a', 'avconv')
 		.alias('s', 'sources')
 		.alias('q', 'quiet')
 		.alias('v', 'verbose')
-		.demand(['p', 's'])
+		.demand(['s'])
 		.default('a', 'avconv')
-		.describe('p', 'The port the HTTP server should be listening on')
 		.describe('a', 'The path to avconv, defaults to just "avconv"')
 		.describe('s', 'The path to sources.json, defaults to "data/sources.json"')
 		.describe('q', 'Disable all logging to stdout')
@@ -130,6 +137,8 @@ var server = http.createServer(function (request, response) {
 	});
 });
 
+frontendServer.server();
+
 // Start the server
-server.listen(argv.port, '::'); // listen on both IPv4 and IPv6
-winston.info('Server listening on port %d', argv.port);
+server.listen(config.port, '::'); // listen on both IPv4 and IPv6
+winston.info('Server listening on port %d', config.port);

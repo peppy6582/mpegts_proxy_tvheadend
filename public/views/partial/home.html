@@ -1,0 +1,22 @@
+<!-- partial-home.html -->
+<div>
+    <div class="jumbotron text-center">
+
+        <h1>The Homey Page</h1>
+        <p>This page demonstrates <span class="text-danger">nested</span> views.</p>
+
+        <md-button ui-sref=".list" class="md-raised btn-primary">List</md-button>
+        <md-button ui-sref="about" class="md-raised btn-primary">About</md-button>
+        <md-button ui-sref=".paragraph" class="md-raised md-warn">Paragraph</md-button>
+
+        <md-button ng-controller="AppCtrl" ng-click="toggleLeft()"
+                   class="md-raised md-primary">
+            Show Options
+        </md-button>
+
+    </div>
+
+</div>
+
+
+<div ui-view></div>

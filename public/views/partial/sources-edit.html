@@ -1,0 +1,27 @@
+<!-- sources-edit.html -->
+<div ng-controller="sourceAppController">
+    <md-content>
+        <md-card ng-repeat="source in sources" class="md-whiteframe-z2">
+            <md-card-content>
+                <md-input-container>
+                    <label>Name</label>
+                    <input ng-model="source.name">
+                </md-input-container>
+                <md-input-container>
+                    <label>Provider</label>
+                    <input ng-model="source.provider">
+                </md-input-container>
+                <md-input-container>
+                    <label>Url</label>
+                    <input ng-model="source.url">
+                </md-input-container>
+                <md-input-container>
+                    <label>Source Url</label>
+                    <input ng-model="source.source">
+                </md-input-container>
+            </md-card-content>
+        </md-card>
+    </md-content>
+</div>
+
+<div ui-view></div>

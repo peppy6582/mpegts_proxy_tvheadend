@@ -1,0 +1,1 @@
+var mpegTs = angular.module("mpegTs", ['ui.router', 'ngMaterial']);

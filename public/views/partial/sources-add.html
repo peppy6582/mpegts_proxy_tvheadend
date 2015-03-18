@@ -1,0 +1,21 @@
+<div class="container" ng-controller="sourceAppController">
+    <h2> Add Sources </h2>
+    {{ sources.length }}
+    <br />
+    Source Name: <br />
+    <input type="text" ng-model="newSource.name" />
+    <br />
+    Source Provider: <br />
+    <input type="text" ng-model="newSource.provider" />
+    <br />
+    Source Url: <br />
+    <input type="text" ng-model="newSource.url" />
+    <br />
+    Source Feed: <br />
+    <input type="text" ng-model="newSource.source" />
+    <br />
+    <button ng-click="addSources()">Add New Source</button>
+    <br />
+    <br />
+    <a href="#/sources">Source List</a>
+</div>
