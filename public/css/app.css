@@ -138,4 +138,19 @@ body > div.ng-scope > md-toolbar {
     top: 64px;
 }
 
-body > div.ng-scope > md-toolbar > div:nth-child(2)
+.md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-raised:not([disabled]):focus, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):focus {
+    background-color: rgb(66, 175, 115);
+}
+
+.md-button.md-default-theme.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab {
+    color: rgba(255,255,255,0.87);
+    background-color: #A00000;
+}
+
+md-toolbar.md-default-theme {
+    background-color: #020202;
+}
+
+.md-toolbar-tools {
+    width: 50%;
+}

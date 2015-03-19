@@ -1,21 +1,23 @@
 <!-- sources.html -->
 <div ng-controller="sourceAppController">
-    <md-content>
-        <md-card ng-repeat="source in sources" class="md-whiteframe-z2">
-            <md-card-content>
+    <md-content ng-style="slide">
+        <md-card layout="row" layout-align="center center" ng-repeat="source in sources" class="md-whiteframe-z2">
+            <md-card-content layout="column" flex="20">
                 <p>Name: {{ source.name }}</p>
                 <p>Provider: {{ source.provider }}</p>
+            </md-card-content>
+            <md-card-content layout="column" flex="70">
                 <p>Url: {{ source.url }}</p>
                 <p>Source Url: {{ source.source }}</p>
             </md-card-content>
         </md-card>
         <md-card>
-            <div class="span12">
-                <a href="#/add">Add Source</a>
-            </div>
+            <md-button ng-click="toggleLeft()"
+                       class="md-raised md-primary md-whitefram-z4">
+                Add Source
+            </md-button>
         </md-card>
     </md-content>
 </div>
-
 
 <div ui-view></div>

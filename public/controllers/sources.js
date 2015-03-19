@@ -1,6 +1,22 @@
 'use strict';
 
-mpegTs.controller('sourceAppController', function ($scope, findSourcesFactory) {
+mpegTs.controller('sourceAppController', function ($scope, $log, $mdSidenav, $state, $http, findSourcesFactory) {
+
+    $scope.toggleLeft = function() {
+        $scope.slide = { 'left': '300px', 'width': '70%' };
+        $mdSidenav('left').toggle();
+    };
+
+    $scope.closeLeft = function() {
+        $mdSidenav('left').close()
+        .then(function(){
+                $scope.slide= { 'width': 'auto' };
+                $state.go($state.current, {}, {reload: true});
+        });
+
+    };
+
+    $scope.slide= { 'width': 'auto' };
 
     findSourcesFactory.getSources().then(function(data){
         $scope.sources = data.data;
@@ -13,10 +29,11 @@ mpegTs.controller('sourceAppController', function ($scope, findSourcesFactory) {
         var sourceUrl = $scope.newSource.url;
         var sourceSource = $scope.newSource.source;
         findSourcesFactory.insertSources(sources, sourceName, sourceProvider, sourceUrl, sourceSource);
-        $scope.newSource.name = ' ';
-        $scope.newSource.provider = ' ';
-        $scope.newSource.url = ' ';
-        $scope.newSource.source = ' ';
+        findSourcesFactory.postSources($scope.sources);
+        $scope.newSource.name = '';
+        $scope.newSource.provider = '';
+        $scope.newSource.url = '';
+        $scope.newSource.source = '';
     };
 
 });

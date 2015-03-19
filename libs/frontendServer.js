@@ -8,28 +8,27 @@ var settings = './public/settings.json';
 var sources = './examples/sources.json';
 
 app.use(express.static(path.join(__dirname, '../public')));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.get('/',function(req,res){
 
 });
 
 app.get('/examples/get',function(req,res){
     jf.readFile(sources, function(err, obj) {
-        console.log(obj)
-    })
+        console.log(err)
+    });
 
     res.sendfile(sources);
 });
 
 app.post('/examples/put', function(req,res){
 
-    var obj = JSON.parse(fs.readFileSync(sources, 'utf8'));
-    console.log(res);
-/*
+    jf.writeFile(sources, req.body, function(err) {
+        console.log(err);
+    });
 
-    jf.writeFile(sources, obj, function(err) {
-        console.log(err)
-    })*/
+    res.sendfile(sources);
 
 });
 

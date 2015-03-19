@@ -1,13 +1,29 @@
-<div ng-controller="AppCtrl" layout="column" style="height:500px;">
-    <section layout="row" flex>
+<div ng-controller="sourceAppController" layout="column" style="height:500px;">
+    <section layout="column" flex>
         <md-sidenav class="md-sidenav-left md-whiteframe-z5" md-component-id="left">
-            <md-toolbar class="md-theme-light">
-                <h1 class="md-toolbar-tools">Options</h1>
+            <md-toolbar class="md-theme-light" layout="column" layout-align="center center">
+                <h1 class="md-toolbar-tools">Add Source</h1>
             </md-toolbar>
-            <md-content ng-controller="LeftCtrl" class="md-padding">
-                <md-button ng-click="close()" class="md-primary md-raised">
-                    Close
-                </md-button>
+            <md-content class="md-padding" layout="column" layout-align="space-around center">
+                <form>
+                        Current Sources: {{ sources.length }}
+                        <br />
+                        Source Name: <br />
+                        <input type="text" ng-model="newSource.name" />
+                        <br />
+                        Source Provider: <br />
+                        <input type="text" ng-model="newSource.provider" />
+                        <br />
+                        Source Url: <br />
+                        <input type="text" ng-model="newSource.url" />
+                        <br />
+                        Source Feed: <br />
+                        <input type="text" ng-model="newSource.source" />
+                        <br />
+                        <br />
+                        <md-button ng-click="addSources()" class="md-primary md-raised">Add</md-button>
+                        <md-button ng-click="closeLeft()" class="md-primary md-raised">Close</md-button>
+                </form>
             </md-content>
         </md-sidenav>
     </section>
