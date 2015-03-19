@@ -1,0 +1,24 @@
+{
+  "name": "mpegts_proxy for TVHeadend",
+  "version": "0.0.1",
+  "homepage": "https://github.com/peppy6582/mpegts_proxy_tvheadend",
+  "authors": [
+    "peppy6582 <peppy6582@gmail.com>"
+  ],
+  "description": "Noice",
+  "main": "node-ffmpeg-mpegts-proxy.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.13"
+  }
+}
