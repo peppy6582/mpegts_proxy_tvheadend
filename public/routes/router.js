@@ -12,9 +12,16 @@ mpegTs.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: '/views/partial/sources.html'
         })
 
+        .state('sources.edit', {
+            url: '/sources-edit',
+            controller: 'sourceAppController',
+            templateUrl: 'firstDialog'
+        })
+
         .state('sources-edit', {
             url: '/edit',
-            templateUrl: '/views/partial/sources-edit.html'
+            controller: 'sourceAppController',
+            templateUrl: '/views/partial/edit.html'
         })
 
         .state('sources-add', {

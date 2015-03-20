@@ -1,16 +1,6 @@
 <!-- sources.html -->
 <div ng-controller="sourceAppController">
     <md-content ng-style="slide">
-        <md-card layout="row" layout-align="center center" ng-repeat="source in sources" class="md-whiteframe-z2">
-            <md-card-content layout="column" flex="20">
-                <p>Name: {{ source.name }}</p>
-                <p>Provider: {{ source.provider }}</p>
-            </md-card-content>
-            <md-card-content layout="column" flex="70">
-                <p>Url: {{ source.url }}</p>
-                <p>Source Url: {{ source.source }}</p>
-            </md-card-content>
-        </md-card>
         <md-card>
             <md-button ng-click="toggleLeft()"
                        class="md-raised md-primary md-whitefram-z4">
@@ -18,6 +8,30 @@
             </md-button>
         </md-card>
     </md-content>
+    <md-content ng-style="slide" ng-repeat="source in sources">
+        <md-card layout="row" layout-align="space-around center" class="md-whiteframe-z2" style="height: 65px" id="sourceCards" ng-click="open(source.name)">
+            <md-card-content flex="30">
+                <h3>Name: {{ source.name }}</h3><script>console.log({{editable}})</script>
+            </md-card-content>
+            <md-card-content flex="30">
+                <h3>Provider: {{ source.provider }}</h3>
+            </md-card-content>
+        </md-card>
+    </md-content>
 </div>
 
+<script type="text/ng-template" id="firstDialog">
+        <md-card layout="row" layout-align="center center" ng-repeat="source in sources | filter: editFilter">
+            <md-input-container flex="20">
+                <label>Name</label>
+                <input ng-model="source.name">
+            </md-input-container>
+            <md-input-container flex="80">
+                <label>Source Url</label>
+                <input ng-model="source.source">
+            </md-input-container>
+        </md-card>
+</script>
+
 <div ui-view></div>
+

@@ -1,6 +1,6 @@
 'use strict';
 
-mpegTs.controller('sourceAppController', function ($scope, $log, $mdSidenav, $state, $http, findSourcesFactory) {
+mpegTs.controller('sourceAppController', function ($scope, $log, $mdSidenav, $state, $filter, $http, ngDialog, findSourcesFactory) {
 
     $scope.toggleLeft = function() {
         $scope.slide = { 'left': '300px', 'width': '70%' };
@@ -16,7 +16,19 @@ mpegTs.controller('sourceAppController', function ($scope, $log, $mdSidenav, $st
 
     };
 
+    $scope.editable = 'Off';
+
     $scope.slide= { 'width': 'auto' };
+
+    $scope.open = function (sourceName) {
+        alert("Source Name is " + sourceName);
+        $scope.editFilter = sourceName;
+        ngDialog.open({
+            template: 'firstDialog',
+            scope: $scope
+        });
+    };
+
 
     findSourcesFactory.getSources().then(function(data){
         $scope.sources = data.data;
@@ -35,5 +47,7 @@ mpegTs.controller('sourceAppController', function ($scope, $log, $mdSidenav, $st
         $scope.newSource.url = '';
         $scope.newSource.source = '';
     };
+
+
 
 });

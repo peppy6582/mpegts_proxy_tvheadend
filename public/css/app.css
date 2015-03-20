@@ -133,6 +133,11 @@ body > div.ng-scope > md-toolbar {
     color: #ffffff;
 }
 
+#top-navbar > md-toolbar {
+    background-color: #A00000;
+    color: #ffffff;
+}
+
 .md-sidenav-left, md-sidenav {
     left: 0;
     top: 64px;
@@ -153,4 +158,14 @@ md-toolbar.md-default-theme {
 
 .md-toolbar-tools {
     width: 50%;
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+    width: 60%;
+    padding: 1px;
+}
+
+
+#sourceCards:active {
+    background-color: rgb(94, 152, 186);
 }

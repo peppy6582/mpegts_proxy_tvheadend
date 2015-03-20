@@ -1,1 +1,1 @@
-var mpegTs = angular.module("mpegTs", ['ui.router', 'ngMaterial']);
+var mpegTs = angular.module("mpegTs", ['ui.router', 'ngMaterial', 'ngDialog']);

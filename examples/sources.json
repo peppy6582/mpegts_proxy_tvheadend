@@ -6,10 +6,12 @@
     "source": "http://public.infozen.cshls.lldns.net/infozen/public/public/public_1000.m3u8",
     "avconvOptions": {
       "input": [
-        "fflags", "+genpts"
+        "fflags",
+        "+genpts"
       ],
       "output": [
-        "-bsf", "h264_mp4toannexb"
+        "-bsf",
+        "h264_mp4toannexb"
       ]
     }
   },
@@ -24,5 +26,11 @@
     "provider": "NASA",
     "url": "/ntv3",
     "source": "http://media.infozen.cshls.lldns.net/infozen/media/media/media_1000.m3u8"
+  },
+  {
+    "name": "ABC News",
+    "provider": "ABC",
+    "url": "abc_news",
+    "source": "http://abclive.abcnews.com/i/abc_live4@136330/index_1200_av-b.m3u8?sd=10&b=1200&rebase=on"
   }
 ]

@@ -1,3 +1,12 @@
-<md-toolbar>
-    <h1>MPEGTS Proxy for TVHeadend</h1>
-</md-toolbar>
+<md-content layout="row" id="top-navbar">
+    <md-toolbar ng-controller="sourceAppController" flex="85">
+        <h1 class="md-toolbar-tools">
+            <span>MPEGTS Proxy for TVHeadend</span>
+         </h1>
+    </md-toolbar>
+    <md-toolbar ng-controller="sourceAppController" flex="15">
+        <md-switch ng-model="editable" aria-label="Edit Mode" ng-true-value="'On'" ng-false-value="'Off'" class="md-warn">
+            Edit Mode: {{ editable }}
+        </md-switch>
+    </md-toolbar>
+</md-content>

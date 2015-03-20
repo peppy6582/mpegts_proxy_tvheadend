@@ -1,0 +1,25 @@
+<script type="text/ng-template" id="firstDialog">
+    <div class="ngdialog-message" ng-controller="sourceAppController">
+        <md-card layout="row" layout-align="center center" ng-repeat="source in sources | filter: editFilter" class="md-whiteframe-z2">
+            <md-card-content layout="column" flex="20">
+                <p>Name: {{ source.name }}</p>
+                <p>Provider: {{ source.provider }}</p>
+            </md-card-content>
+            <md-card-content layout="column" flex="70">
+                <p>Url: {{ source.url }}</p>
+                <p>Source Url: {{ source.source }}</p>
+            </md-card-content>
+            <md-card-content>
+                <a class="btn md-raised md-primary" href="/#/edit/{{source.name}}">
+                    <i class="fa fa-pencil"></i>
+                    Edit
+                </a>
+            </md-card-content>
+        </md-card>
+    </div>
+    <div class="ngdialog-buttons mt" ng-controller="sourceAppController">
+        <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="next()">►</button>
+    </div>
+</script>
+
+<div ui-view></div>
